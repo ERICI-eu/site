@@ -1,0 +1,14 @@
+# editor and OS clutter
+*~
+*.swp
+*.swo
+.#*
+\#*\#
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# local scratch
+*.bak
+*.tmp
