@@ -293,8 +293,77 @@
     <div class="wrap">
       <p class="section-tag">Reference stack</p>
       <h2 id="stack-title">One example, many choices</h2>
-      <div class="placeholder">Coming next: firmware, partitioning, real-time and
-        HMI layers, each with its alternatives.</div>
+      <p class="wide">
+        A RISC-V Industrial Computer is built in layers. ERICI shows one complete stack
+        running on real RVA23 hardware, but no layer is mandatory: each one can be replaced
+        by the option that fits the application, the certification path or the team's
+        experience.
+      </p>
+
+      <div class="layers">
+        <div class="lrow head" aria-hidden="true">
+          <span>Layer</span><span>In the example stack</span><span>Alternatives</span>
+        </div>
+
+        <div class="lrow">
+          <div class="lname l-gp"><b>Operator partition</b><span>GUI, HMI, networking</span></div>
+          <div class="lex"><b>Linux</b><span>a general-purpose OS for everything that is not
+            time-critical</span></div>
+          <ul class="alts"><li>any Linux distribution</li><li>FreeBSD or another BSD</li></ul>
+        </div>
+
+        <div class="lrow">
+          <div class="lname l-rt"><b>Real-time partition</b><span>control loops, machine I/O</span></div>
+          <div class="lex"><b><a href="https://qsoe.net">QSOE</a></b><span>a QNX-style
+            environment: /N on its own Skimmer microkernel, /L on seL4, same userspace</span></div>
+          <ul class="alts"><li>Zephyr</li><li>NuttX</li><li>RTEMS</li><li>other RTOSes</li></ul>
+        </div>
+
+        <div class="lrow">
+          <div class="lname l-hv"><b>Partitioning</b><span>CPUs, memory, devices, IOMMU</span></div>
+          <div class="lex"><b>gRouvr</b><span>RVA23 resource-partitioning hypervisor; every
+            available means of isolation, IOMMU included</span></div>
+          <ul class="alts"><li>QBao</li><li>Bao</li><li>Xvisor</li></ul>
+        </div>
+
+        <div class="lrow">
+          <div class="lname l-fw"><b>Firmware</b><span>initialization, boot control</span></div>
+          <div class="lex"><b><a href="https://qsoe.net/hfi">HFI BIOS</a></b><span>U-Boot-based, with a BIOS-style Set-Up
+            for industrial boards</span></div>
+          <ul class="alts"><li>EDK2 (UEFI)</li><li>OpenSBI + U-Boot</li></ul>
+        </div>
+
+        <div class="lrow">
+          <div class="lname l-hw"><b>Hardware</b><span>RVA23 SoC with IOMMU</span></div>
+          <div class="lex"><b>SpacemiT K3</b><span>8× X100 cores, hypervisor extension,
+            IOMMU</span></div>
+          <ul class="alts"><li>any RVA23 SoC with an IOMMU</li></ul>
+        </div>
+      </div>
+
+      <div class="boot">
+        <div>
+          <h3 class="sub">Example: booting QBao with Multiboot3</h3>
+          <p class="wide">
+            <a href="https://github.com/bao-project/bao-hypervisor">Bao</a> is a static
+            partitioning hypervisor: each guest gets its own CPUs, memory and devices.
+            QBao extends it with a module loader using
+            <a href="https://gitlab.com/qsoe/mr-bml">Multiboot3</a>. The boot loader
+            loads the hypervisor and the images of every partition as modules, then
+            hands over control. Real-time and Linux partitions start
+            side by side, each with its own share of the SoC.
+          </p>
+        </div>
+        <pre class="code" aria-label="Multiboot3 boot script"><code><span class="c"># hypervisor</span>
+multiboot3 qbao.elf
+<span class="c"># real-time partition: QSOE/N kernel + root fs</span>
+module3    skimmer.bin
+module3    qsoe-root.cpio
+<span class="c"># operator partition: Linux</span>
+module3    vmlinuz
+module3    initrd-linux.cpio.gz
+boot</code></pre>
+      </div>
     </div>
   </section>
 
