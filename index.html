@@ -109,9 +109,57 @@
     <div class="wrap">
       <p class="section-tag">Why now</p>
       <h2 id="why-title">Industrial computing is ready for RISC-V</h2>
-      <div class="placeholder">Coming next: x86 and Arm today; RVA23 as the first
-        RISC-V profile fit for partitioned industrial systems; why RICs practically
-        don't exist yet.</div>
+      <p class="wide">
+        Today's industrial computers run on x86 and Arm: two instruction sets, each
+        owned and licensed by a single company. RISC-V is open, governed by a
+        non-profit, and implemented by many vendors. Until recently it lacked what
+        industrial systems need. That has changed.
+      </p>
+
+      <div class="reasons">
+        <article class="reason">
+          <span class="num">1</span>
+          <h3>An open ISA</h3>
+          <p>No license for the instruction set, no single owner, many silicon vendors.
+            A machine expected to run for 15 years should not depend on one
+            supplier's roadmap.</p>
+        </article>
+        <article class="reason">
+          <span class="num">2</span>
+          <h3>RVA23: a real baseline</h3>
+          <p>The RVA23 profile, ratified in October 2024, makes the hypervisor and
+            vector extensions mandatory. Software can rely on them on every
+            compliant chip.</p>
+        </article>
+        <article class="reason">
+          <span class="num">3</span>
+          <h3>Silicon is shipping</h3>
+          <p>The first RVA23 SoCs and boards are available in 2026, with eight
+            64-bit cores and an IOMMU. Developers can buy them today.</p>
+        </article>
+        <article class="reason">
+          <span class="num">4</span>
+          <h3>One box instead of two</h3>
+          <p>A partitioning hypervisor runs real-time control and the operator's
+            Linux side by side, isolated from each other, on one SoC.</p>
+        </article>
+      </div>
+
+      <h3 class="sub">From a university project to industrial computing</h3>
+      <ol class="timeline">
+        <li><b>2010</b><span>RISC-V starts at UC Berkeley</span></li>
+        <li><b>2015</b><span>RISC-V Foundation founded</span></li>
+        <li><b>2020</b><span>RISC-V International, based in Switzerland</span></li>
+        <li><b>2021</b><span>Hypervisor and vector extensions ratified</span></li>
+        <li><b>2024</b><span>RVA23 profile ratified</span></li>
+        <li class="now"><b>2026</b><span>First RVA23 boards. ERICI starts.</span></li>
+      </ol>
+
+      <p class="wide closing">
+        So why are there no RISC-V industrial computers yet? Board makers wait for
+        software, software waits for boards, and customers wait for both. ERICI
+        breaks that loop with an open reference stack running on real hardware.
+      </p>
     </div>
   </section>
 

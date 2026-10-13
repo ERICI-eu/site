@@ -349,6 +349,78 @@ a:hover { color: var(--green3); }
   max-width: 42em;
 }
 
+/* ---- why now: reasons ---- */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0 0;
+}
+.reason {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue3);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+.reason:nth-child(even) { border-top-color: var(--green3); }
+.reason .num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--green3);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.reason h3 { margin: 0.7rem 0 0.4rem; font-size: 1.1rem; line-height: 1.25; }
+.section .reason p { margin: 0; font-size: 0.95rem; }
+
+/* ---- why now: timeline ---- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  position: relative;
+}
+/* the rail: blue-to-green, like the brand bar */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.55rem;
+  height: 3px;
+  background: var(--brand);
+  border-radius: 2px;
+}
+.timeline li {
+  position: relative;
+  padding: 1.7rem 0.8rem 0 0;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--blue3);
+}
+.section.alt .timeline li::before { background: var(--bg-soft); }
+.timeline li.now::before { background: var(--green3); border-color: var(--green3); }
+.timeline b { display: block; font-size: 1.15rem; }
+.timeline span { display: block; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.4; }
+.timeline li.now b { color: var(--green4); }
+
+.closing { margin-top: 2.5rem; font-size: 1.08rem; }
+
 /* ---- the gap: product cards ---- */
 .products {
   display: grid;
@@ -495,6 +567,10 @@ a:hover { color: var(--green3); }
 .site-foot a { color: var(--ink-soft); }
 
 /* ---- responsive ---- */
+@media (max-width: 1000px) {
+  .reasons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
   .products { grid-template-columns: 1fr; }
@@ -527,6 +603,15 @@ a:hover { color: var(--green3); }
     display: none;
   }
   .nav.open { display: flex; }
+  .reasons { grid-template-columns: 1fr; }
+  /* vertical timeline on phones */
+  .timeline { grid-template-columns: 1fr; padding-left: 1.6rem; }
+  .timeline::before { left: 0.4rem; right: auto; top: 0.3rem; bottom: 0.3rem; width: 3px; height: auto;
+                      background: linear-gradient(180deg, var(--blue3), var(--green3)); }
+  .timeline li { padding: 0 0 1rem; }
+  .timeline li::before { left: -1.6rem; top: 0.3rem; }
+  .timeline b { display: inline; margin-right: 0.5rem; }
+  .timeline span { display: inline; }
   .checklist th, .checklist td { padding: 0.6rem 0.7rem; }
   .checklist td { white-space: normal; }
   .nav a { padding: 0.65rem 0; border-bottom: 1px solid var(--line); }
