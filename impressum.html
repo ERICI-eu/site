@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum — ERICI</title>
+  <meta name="description" content="Legal notice for erici.eu.">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* apply a saved theme before first paint */
+    try {
+      var t = localStorage.getItem("erici-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+
+<div class="brand-bar"></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ERICI home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2F86C9"/>
+            <stop offset="1" stop-color="#2E9B64"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="3" width="12.5" height="6" rx="1.6" fill="#2F86C9"/>
+        <rect x="17.5" y="3" width="12.5" height="6" rx="1.6" fill="#2E9B64"/>
+        <rect x="2" y="11.5" width="28" height="6" rx="1.6" fill="url(#lg)"/>
+        <rect x="2" y="20" width="28" height="4" rx="1.4" fill="#2F86C9" opacity="0.55"/>
+        <rect x="2" y="26" width="28" height="4" rx="1.4" fill="#124C7C"/>
+      </svg>
+      ERICI
+    </a>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="index.html#why">Why now</a>
+      <a href="index.html#gap">The gap</a>
+      <a href="index.html#stack">Reference stack</a>
+      <a href="index.html#join">Join</a>
+    </nav>
+    <div class="head-tools">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menu"
+              aria-controls="nav" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="legal">
+  <div class="wrap">
+    <p class="section-tag">Legal notice</p>
+    <h1>Impressum</h1>
+
+    <h2>Information according to §&nbsp;18&nbsp;(1)&nbsp;MStV and §&nbsp;5&nbsp;DDG</h2>
+    <p>
+      Yuri Zaporozhets<br>
+      ERICI — European RISC-V Industrial Computing Initiative<br>
+      <span class="todo">[street and number, postal code, city: address service, to be added]</span><br>
+      Germany
+    </p>
+
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:contact@erici.eu">contact@erici.eu</a></p>
+
+    <h2>Responsible for content according to §&nbsp;18&nbsp;(2)&nbsp;MStV</h2>
+    <p>Yuri Zaporozhets, address as above.</p>
+
+    <h2>About ERICI</h2>
+    <p>
+      ERICI is a non-commercial initiative in its founding phase. It is not yet a
+      legal entity, sells nothing and charges no fees.
+    </p>
+
+    <h2>External links</h2>
+    <p>
+      This site links to websites of third parties. Their operators are solely
+      responsible for their content. The linked pages were checked for obvious legal
+      violations when the links were set. If we become aware of any, we will remove
+      the link.
+    </p>
+
+    <h2>Image credits</h2>
+    <p>
+      Firefly AIBOX-K3: © T-Chip Intelligent Technology Co., Ltd.,
+      <a href="https://www.firefly.store/collections/ai-box/products/aibox-k3-risc-v-edge-mini-pc">firefly.store</a>.<br>
+      Milk-V Jupiter2: © Milk-V, <a href="https://milkv.io/jupiter2">milkv.io</a>.
+    </p>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>ERICI · European RISC-V Industrial Computing Initiative · non-commercial</p>
+    <ul>
+      <li><a href="https://qsoe.net">QSOE</a></li>
+      <li><a href="https://qsoe.net/hfi">HFI BIOS</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+
+</body>
+</html>
