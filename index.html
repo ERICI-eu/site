@@ -120,8 +120,123 @@
     <div class="wrap">
       <p class="section-tag">The gap</p>
       <h2 id="gap-title">The silicon is here. The industrial computer isn't yet.</h2>
-      <div class="placeholder">Coming next: Firefly AIBOX-K3 and Milk-V Jupiter2
-        (credited and linked), against a checklist of what a RIC needs.</div>
+      <p class="wide">
+        The first RVA23 machines are on the market: eight 64-bit RISC-V cores, the
+        hypervisor extension, an IOMMU. They are excellent development and edge
+        platforms. An industrial computer has to do more: survive the control
+        cabinet, talk to the field, and stay available for a&nbsp;decade or longer.
+      </p>
+
+      <div class="products">
+        <article class="product">
+          <div class="product-img light">
+            <img src="img/01-FireFly_AIBOX_K3.png" width="512" height="512"
+                 alt="Firefly AIBOX-K3, a compact black and grey mini PC" loading="lazy">
+          </div>
+          <div class="product-body">
+            <h3>Firefly AIBOX-K3</h3>
+            <p class="maker">T-Chip Intelligent Technology · edge mini PC</p>
+            <ul>
+              <li>SpacemiT K3, 8× X100 RISC-V cores up to 2.4 GHz, RVA23</li>
+              <li>Up to 32 GB LPDDR5, UFS, M.2 NVMe</li>
+              <li>2× Gigabit Ethernet, 9–20 V DC input</li>
+              <li>−20 to 60 °C operating temperature</li>
+            </ul>
+            <p class="credit">Image © T-Chip Intelligent Technology Co., Ltd. ·
+              <a href="https://www.firefly.store/collections/ai-box/products/aibox-k3-risc-v-edge-mini-pc"
+                 rel="noopener">product page</a></p>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img dark">
+            <img src="img/02-MilkV_Jupiter2.png" width="283" height="256"
+                 alt="Milk-V Jupiter2 in its black metal case with two antennas" loading="lazy">
+          </div>
+          <div class="product-body">
+            <h3>Milk-V Jupiter2</h3>
+            <p class="maker">Milk-V · single-board computer, metal case</p>
+            <ul>
+              <li>SpacemiT K3, 8× X100 RISC-V cores up to 2.4 GHz, RVA23</li>
+              <li>Up to 32 GB LPDDR5, UFS, M.2 NVMe</li>
+              <li>Gigabit and 10 GbE SFP+, Wi-Fi 6</li>
+              <li>Real-time I/O expansion for EtherCAT and CAN-FD modules</li>
+            </ul>
+            <p class="credit">Image © Milk-V ·
+              <a href="https://milkv.io/jupiter2" rel="noopener">product page</a></p>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="sub">What a RISC-V Industrial Computer needs</h3>
+      <div class="table-scroll">
+        <table class="checklist">
+          <thead>
+            <tr>
+              <th scope="col">Requirement</th>
+              <th scope="col">AIBOX-K3</th>
+              <th scope="col">Jupiter2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">RVA23 SoC with hypervisor extension and IOMMU</th>
+              <td><span class="mark yes">Yes</span></td>
+              <td><span class="mark yes">Yes</span></td>
+            </tr>
+            <tr>
+              <th scope="row">24 V DC supply, wide input range</th>
+              <td><span class="mark part">9–20&nbsp;V</span></td>
+              <td><span class="mark part">12&nbsp;V / USB-PD</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Extended temperature, −40 to 85 °C</th>
+              <td><span class="mark part">−20 to 60&nbsp;°C</span></td>
+              <td><span class="mark none">Not stated</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Fieldbus and real-time I/O (EtherCAT, CAN, TSN)</th>
+              <td><span class="mark none">Not stated</span></td>
+              <td><span class="mark part">Via modules</span></td>
+            </tr>
+            <tr>
+              <th scope="row">DIN-rail or panel mounting</th>
+              <td><span class="mark none">Not stated</span></td>
+              <td><span class="mark none">Not stated</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Hardware watchdog, isolated digital I/O</th>
+              <td><span class="mark none">Not stated</span></td>
+              <td><span class="mark none">Not stated</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Industrial EMC and safety certification</th>
+              <td><span class="mark none">Not stated</span></td>
+              <td><span class="mark none">Not stated</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Long-term availability, 10–15 years</th>
+              <td><span class="mark none">Not stated</span></td>
+              <td><span class="mark none">Not stated</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Partitioned software stack: real-time next to Linux</th>
+              <td><span class="mark none">Not yet</span></td>
+              <td><span class="mark none">Not yet</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note wide">
+        Specifications as published by the manufacturers, October 2026. Both products
+        are shown as examples of RVA23 hardware available today. No affiliation with
+        ERICI or endorsement by the manufacturers is implied.
+      </p>
+
+      <p class="takeaway wide">
+        The missing pieces are not the cores. They are the industrial hardware around
+        them and an open, partitioned software stack on top. That is where ERICI starts.
+      </p>
     </div>
   </section>
 
