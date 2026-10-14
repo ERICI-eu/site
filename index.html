@@ -65,9 +65,9 @@
 <main id="top">
 
   <!-- 1. Vision -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero has-factory" aria-labelledby="hero-title">
     <div class="wrap">
-      <div>
+      <div class="hero-text">
         <p class="eyebrow">European RISC-V Industrial Computing Initiative</p>
         <h1 id="hero-title">
           <span class="accent">RISC-V Industrial Computers.</span><br>
@@ -90,12 +90,21 @@
         </div>
       </div>
 
+      <button class="factory" id="factory" type="button" aria-expanded="false"
+              aria-label="Installation: a RISC-V Industrial Computer at work. Click to enlarge."
+              title="Click to enlarge">
+        <img src="factory.svg" width="1200" height="440"
+             alt="A control cabinet with a RISC-V Industrial Computer and I/O modules,
+                  an operator panel on Linux, and a wood-panel CNC machine">
+      </button>
+
       <figure class="stack" aria-label="Example RIC software stack">
         <div class="parts">
           <div class="layer"><b>Linux</b><span>operator GUI, HMI</span></div>
           <div class="layer green"><b>QSOE</b><span>real-time control</span></div>
         </div>
         <div class="layer hv"><b>gRouvr</b><span>partitioning hypervisor</span></div>
+        <div class="layer green"><b>mr-bml</b><span>boot loader, OS selection</span></div>
         <div class="layer"><b>HFI BIOS</b><span>firmware, Set-Up, boot control</span></div>
         <div class="layer soc"><b>RVA23 RISC-V SoC</b><span>cores, memory, devices, IOMMU</span></div>
         <figcaption>One example stack. Every layer can be swapped.
@@ -327,6 +336,13 @@
         </div>
 
         <div class="lrow">
+          <div class="lname l-bl"><b>Loading</b><span>boot menu, OS images</span></div>
+          <div class="lex"><b><a href="https://gitlab.com/qsoe/mr-bml">mr-bml</a></b><span>menu-driven
+            boot loader: the operator selects which systems to start</span></div>
+          <ul class="alts"><li>GRUB</li></ul>
+        </div>
+
+        <div class="lrow">
           <div class="lname l-fw"><b>Firmware</b><span>initialization, boot control</span></div>
           <div class="lex"><b><a href="https://qsoe.net/hfi">HFI BIOS</a></b><span>U-Boot-based, with a BIOS-style Set-Up
             for industrial boards</span></div>
@@ -348,8 +364,8 @@
             <a href="https://github.com/bao-project/bao-hypervisor">Bao</a> is a static
             partitioning hypervisor: each guest gets its own CPUs, memory and devices.
             QBao extends it with a module loader using
-            <a href="https://gitlab.com/qsoe/mr-bml">Multiboot3</a>. The boot loader
-            loads the hypervisor and the images of every partition as modules, then
+            <a href="https://gitlab.com/qsoe/mr-bml">Multiboot3</a>. The boot loader,
+            mr-bml, loads the hypervisor and the images of every partition as modules, then
             hands over control. Real-time and Linux partitions start
             side by side, each with its own share of the SoC.
           </p>

@@ -574,6 +574,7 @@ a:hover { color: var(--green3); }
 .l-gp { background: var(--blue1); border-right: 3px solid var(--blue3); }
 .l-rt { background: var(--green1); border-right: 3px solid var(--green3); }
 .l-hv { background: #2E9B64; color: #FFFFFF; }
+.l-bl { background: var(--green1); border-right: 3px solid var(--green3); }
 .l-fw { background: var(--blue1); border-right: 3px solid var(--blue3); }
 .l-hw { background: #124C7C; color: #FFFFFF; }
 .alts {
@@ -780,4 +781,43 @@ a:hover { color: var(--green3); }
   padding: 0.05rem 0.35rem;
   border-radius: 4px;
   font-weight: 600;
+}
+
+/* ---- installation in the hero: small above the stack, full width on click ---- */
+.has-factory .wrap {
+  row-gap: 1.5rem;
+  grid-template-areas:
+    "text factory"
+    "text stack";
+  align-items: start;
+}
+.hero-text { grid-area: text; align-self: center; }
+.has-factory .stack { grid-area: stack; }
+.factory {
+  grid-area: factory;
+  align-self: end;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.factory img { display: block; width: 100%; height: auto; }
+.factory:focus-visible { outline: 2px solid var(--blue3); outline-offset: 4px; border-radius: 6px; }
+.has-factory .wrap.expanded {
+  grid-template-areas:
+    "factory factory"
+    "text stack";
+}
+.expanded .factory { cursor: zoom-out; }
+@media (max-width: 860px) {
+  .has-factory .wrap,
+  .has-factory .wrap.expanded {
+    grid-template-areas:
+      "factory"
+      "text"
+      "stack";
+  }
 }

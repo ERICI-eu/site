@@ -1,4 +1,4 @@
-/* ERICI: theme toggle and mobile menu */
+/* ERICI: theme toggle, mobile menu and the installation picture */
 (function () {
   var root = document.documentElement;
   var themeBtn = document.getElementById("theme-toggle");
@@ -8,7 +8,33 @@
     var next = cur === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("erici-theme", next); } catch (e) {}
+    syncFactory();
   });
+
+  /* installation picture: an <img> cannot see the page's theme, so pass it as #light / #dark */
+  var factory = document.getElementById("factory");
+  function syncFactory() {
+    if (!factory) return;
+    var img = factory.querySelector("img");
+    var t = root.getAttribute("data-theme");
+    var src = "factory.svg" + (t ? "#" + t : "");
+    if (img.getAttribute("src") !== src) img.setAttribute("src", src);
+  }
+  syncFactory();
+
+  /* one click anywhere on it toggles between small and full width */
+  if (factory) {
+    factory.addEventListener("click", function () {
+      var grid = factory.parentNode;
+      function toggle() {
+        var open = grid.classList.toggle("expanded");
+        factory.setAttribute("aria-expanded", open ? "true" : "false");
+        factory.title = open ? "Click to shrink" : "Click to enlarge";
+      }
+      if (document.startViewTransition) document.startViewTransition(toggle);
+      else toggle();
+    });
+  }
 
   var nav = document.getElementById("nav");
   var menuBtn = document.getElementById("menu-toggle");
