@@ -4,8 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ERICI — European RISC-V Industrial Computing Initiative</title>
-  <meta name="description" content="ERICI is a non-commercial initiative for RISC-V Industrial Computers (RICs): open, partitioned RVA23 systems built for the factory floor.">
+  <meta name="description" content="ERICI is a non-commercial initiative for RISC-V Industrial Computers (RICs): a tested reference stack for partitioned RVA23 systems on the factory floor.">
   <meta name="color-scheme" content="light dark">
+  <!-- preview card for links shared on social networks and messengers -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ERICI">
+  <meta property="og:url" content="https://erici.eu/">
+  <meta property="og:title" content="ERICI — European RISC-V Industrial Computing Initiative">
+  <meta property="og:description" content="A verified reference stack for RISC-V Industrial Computers: firmware, boot loader, hypervisor, real-time OS and Linux, on real RVA23 hardware. Non-commercial.">
+  <meta property="og:image" content="https://erici.eu/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ERICI: RISC-V Industrial Computers. Open, partitioned, built to last. The reference stack Linux and QSOE on gRouvr, mr-bml, HFI BIOS and an RVA23 SoC.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
   <script>
@@ -75,9 +86,10 @@
         </h1>
         <p class="lede">
           RVA23 silicon has arrived. The industrial computer built on it has not.
-          ERICI brings firmware, hypervisor, real-time and general-purpose operating
-          systems together into one open reference stack, so that RISC-V can run
-          the machines, lines and plants of tomorrow.
+          ERICI coordinates a reference stack, from firmware to real-time and
+          general-purpose operating systems: it fixes the interfaces between the layers
+          and verifies that they boot together on real RVA23 hardware. A box that boots
+          it is <span class="nowrap">ERICI-compatible</span>.
         </p>
         <ul class="badges">
           <li class="badge green">Non-commercial</li>
@@ -86,7 +98,8 @@
         </ul>
         <div class="cta">
           <a class="btn primary" href="#join">Join the initiative</a>
-          <a class="btn" href="#stack">See the reference stack</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=i-NjXXnTv70"
+             target="_blank" rel="noopener">&#9654;&ensp;Demonstration</a>
         </div>
       </div>
 
@@ -98,7 +111,7 @@
                   an operator panel on Linux, and a wood-panel CNC machine">
       </button>
 
-      <figure class="stack" aria-label="Example RIC software stack">
+      <figure class="stack" aria-label="The ERICI reference stack">
         <div class="parts">
           <div class="layer"><b>Linux</b><span>operator GUI, HMI</span></div>
           <div class="layer green"><b>QSOE</b><span>real-time control</span></div>
@@ -107,8 +120,8 @@
         <div class="layer green"><b>mr-bml</b><span>boot loader, OS selection</span></div>
         <div class="layer"><b>HFI BIOS</b><span>firmware, Set-Up, boot control</span></div>
         <div class="layer soc"><b>RVA23 RISC-V SoC</b><span>cores, memory, devices, IOMMU</span></div>
-        <figcaption>One example stack. Every layer can be swapped.
-          <a href="#stack">See the alternatives</a></figcaption>
+        <figcaption>The ERICI reference stack, tested together layer by layer.
+          <a href="#stack">See how it boots</a></figcaption>
       </figure>
     </div>
   </section>
@@ -129,9 +142,9 @@
         <article class="reason">
           <span class="num">1</span>
           <h3>An open ISA</h3>
-          <p>No license for the instruction set, no single owner, many silicon vendors.
-            A machine expected to run for 15 years should not depend on one
-            supplier's roadmap.</p>
+          <p>No license for the instruction set, no single owner, no single country.
+            A machine expected to run for 15 years should not depend on one company's
+            roadmap, or one government's decisions.</p>
         </article>
         <article class="reason">
           <span class="num">2</span>
@@ -285,6 +298,8 @@
         </table>
       </div>
       <p class="note wide">
+        Partitioned stack: demonstrated on the SpacemiT K3 PicoITX board, not yet on these
+        products. <a href="#demo">See the video</a>.<br>
         Specifications as published by the manufacturers, October 2026. Both products
         are shown as examples of RVA23 hardware available today. No affiliation with
         ERICI or endorsement by the manufacturers is implied.
@@ -301,84 +316,114 @@
   <section class="section" id="stack" aria-labelledby="stack-title">
     <div class="wrap">
       <p class="section-tag">Reference stack</p>
-      <h2 id="stack-title">One example, many choices</h2>
+      <h2 id="stack-title">Defined together, verified together</h2>
       <p class="wide">
-        A RISC-V Industrial Computer is built in layers. ERICI shows one complete stack
-        running on real RVA23 hardware, but no layer is mandatory: each one can be replaced
-        by the option that fits the application, the certification path or the team's
-        experience.
+        A RISC-V Industrial Computer is built in layers. ERICI defines a reference stack,
+        documents the interface between each pair of layers, and verifies the whole stack
+        on real RVA23 hardware. The reference components are developed by QSOE Systems;
+        Linux by its community. Each layer depends only on what the layer below hands over.
       </p>
 
       <div class="layers">
         <div class="lrow head" aria-hidden="true">
-          <span>Layer</span><span>In the example stack</span><span>Alternatives</span>
+          <span>Layer</span><span>In the reference stack</span><span>Interface below</span>
         </div>
 
         <div class="lrow">
           <div class="lname l-gp"><b>Operator partition</b><span>GUI, HMI, networking</span></div>
           <div class="lex"><b>Linux</b><span>a general-purpose OS for everything that is not
             time-critical</span></div>
-          <ul class="alts"><li>any Linux distribution</li><li>FreeBSD or another BSD</li></ul>
+          <ul class="iface"><li>devicetree</li><li>kernel + initrd</li></ul>
         </div>
 
         <div class="lrow">
           <div class="lname l-rt"><b>Real-time partition</b><span>control loops, machine I/O</span></div>
           <div class="lex"><b><a href="https://qsoe.net">QSOE</a></b><span>a QNX-style
             environment: /N on its own Skimmer microkernel, /L on seL4, same userspace</span></div>
-          <ul class="alts"><li>Zephyr</li><li>NuttX</li><li>RTEMS</li><li>other RTOSes</li></ul>
+          <ul class="iface"><li>devicetree</li><li>kernel + initrd</li>
+            <li><a href="https://gitlab.com/qsoe/mr-bml">Multiboot3</a> for /L, next gRouvr</li></ul>
         </div>
 
         <div class="lrow">
           <div class="lname l-hv"><b>Partitioning</b><span>CPUs, memory, devices, IOMMU</span></div>
+          <!-- TODO: link gRouvr once the repository is public:
+               <b><a href="https://gitlab.com/qsoe/grouvr">gRouvr</a></b> -->
           <div class="lex"><b>gRouvr</b><span>RVA23 resource-partitioning hypervisor; every
             available means of isolation, IOMMU included</span></div>
-          <ul class="alts"><li>QBao</li><li>Bao</li><li>Xvisor</li></ul>
+          <ul class="iface"><li>kernel + initrd, like Linux</li></ul>
         </div>
 
         <div class="lrow">
           <div class="lname l-bl"><b>Loading</b><span>boot menu, OS images</span></div>
           <div class="lex"><b><a href="https://gitlab.com/qsoe/mr-bml">mr-bml</a></b><span>menu-driven
             boot loader: the operator selects which systems to start</span></div>
-          <ul class="alts"><li>GRUB</li></ul>
+          <ul class="iface"><li>UEFI application</li></ul>
         </div>
 
         <div class="lrow">
           <div class="lname l-fw"><b>Firmware</b><span>initialization, boot control</span></div>
-          <div class="lex"><b><a href="https://qsoe.net/hfi">HFI BIOS</a></b><span>U-Boot-based, with a BIOS-style Set-Up
-            for industrial boards</span></div>
-          <ul class="alts"><li>EDK2 (UEFI)</li><li>OpenSBI + U-Boot</li></ul>
+          <div class="lex"><b><a href="https://qsoe.net/hfi">HFI BIOS</a></b><span>U-Boot-based, with
+            POST and a BIOS-style Set-Up for industrial boards</span></div>
+          <ul class="iface"><li>RVA23 profile</li></ul>
         </div>
 
         <div class="lrow">
           <div class="lname l-hw"><b>Hardware</b><span>RVA23 SoC with IOMMU</span></div>
           <div class="lex"><b>SpacemiT K3</b><span>8× X100 cores, hypervisor extension,
             IOMMU</span></div>
-          <ul class="alts"><li>any RVA23 SoC with an IOMMU</li></ul>
+          <ul class="iface none"><li>the silicon itself</li></ul>
         </div>
       </div>
 
-      <div class="boot">
+      <div class="boot" id="demo">
         <div>
-          <h3 class="sub">Example: booting QBao with Multiboot3</h3>
+          <h3 class="sub">How it boots</h3>
           <p class="wide">
-            <a href="https://github.com/bao-project/bao-hypervisor">Bao</a> is a static
-            partitioning hypervisor: each guest gets its own CPUs, memory and devices.
-            QBao extends it with a module loader using
-            <a href="https://gitlab.com/qsoe/mr-bml">Multiboot3</a>. The boot loader,
-            mr-bml, loads the hypervisor and the images of every partition as modules, then
-            hands over control. Real-time and Linux partitions start
-            side by side, each with its own share of the SoC.
+            The firmware initializes the system, runs POST and offers its
+            <span class="nowrap">Set-Up</span>. Then it starts a UEFI boot loader, and its
+            job is done. The loader starts operating systems, or a hypervisor together
+            with them.
+          </p>
+          <p class="wide">
+            gRouvr is loaded just like a Linux kernel with its initrd. Its boot package is
+            a CPIO archive that holds the kernel and initramfs image of every partition. So
+            mr-bml loads it, and so does GRUB. gRouvr then gives each partition its own
+            CPUs, memory and devices, and a devicetree that describes them. Real-time
+            and Linux partitions start side by side.
           </p>
         </div>
-        <pre class="code" aria-label="Multiboot3 boot script"><code><span class="c"># hypervisor</span>
-multiboot3 qbao.elf
-<span class="c"># real-time partition: QSOE/N kernel + root fs</span>
-module3    skimmer.bin
-module3    qsoe-root.cpio
-<span class="c"># operator partition: Linux</span>
-module3    vmlinuz
-module3    initrd-linux.cpio.gz
-boot</code></pre>
+        <figure class="demo">
+          <a class="demo-shot" href="https://www.youtube.com/watch?v=i-NjXXnTv70"
+             target="_blank" rel="noopener">
+            <img src="img/03-demo-grouvr-k3.jpg" width="960" height="540" loading="lazy"
+                 alt="QSOE/N login prompt on a monitor, running as a gRouvr guest on the SpacemiT K3">
+            <span class="play" aria-hidden="true"></span>
+          </a>
+          <figcaption>
+            <a class="btn primary" href="https://www.youtube.com/watch?v=i-NjXXnTv70"
+               target="_blank" rel="noopener">&#9654;&ensp;Watch the demonstration</a>
+            <span>gRouvr booting Linux and QSOE/N on the SpacemiT K3. Opens on YouTube.</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3 class="sub">Built to outlast</h3>
+      <div class="outlast">
+        <article class="reason">
+          <h3>Not tied to one chip</h3>
+          <p>The first RVA23 SoCs come from Chinese vendors; more will follow from other
+            vendors and other regions. The reference stack depends on the RVA23 profile and
+            on open interfaces, not on a particular SoC. Moving a box to another RVA23 chip
+            means porting the firmware, adapting the hypervisor and the board's drivers. The
+            real-time application and the operator's Linux move with it.</p>
+        </article>
+        <article class="reason">
+          <h3>Not tied to one developer</h3>
+          <p>The reference stack is open source: HFI BIOS under GPL-2.0, like the U-Boot it
+            is based on; mr-bml under GPL-3.0; gRouvr and QSOE under Apache 2.0. Anyone can
+            build, audit and maintain it, with or without its original developers. A machine
+            that runs for 15 years needs software that can be maintained for 15 years.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -396,18 +441,18 @@ boot</code></pre>
 
       <div class="join">
         <div>
-          <h3 class="sub">Who we invite</h3>
+          <h3 class="sub">Who we invite, and what they bring</h3>
           <ul class="invite">
+            <li><b>Industrial hardware makers</b><span>the box itself: an RVA23 board in a
+              real enclosure, with I/O and a datasheet</span></li>
             <li><b>Silicon vendors</b><span>RVA23 SoCs with an IOMMU and long-term
               availability</span></li>
-            <li><b>Industrial hardware makers</b><span>industrial PCs, boards, modules,
-              enclosures</span></li>
-            <li><b>Software projects</b><span>firmware, hypervisors, real-time
-              operating systems, Linux</span></li>
-            <li><b>Universities and research</b><span>teaching, theses, joint
-              projects</span></li>
-            <li><b>Machine builders and plant operators</b><span>the requirements
-              that matter in the field</span></li>
+            <li><b>Machine builders and plant operators</b><span>requirements from the
+              field, and a first machine to put a box in</span></li>
+            <li><b>OS and driver vendors</b><span>your RTOS, Linux distribution or
+              drivers, brought up on a named RVA23 box</span></li>
+            <li><b>Universities and research</b><span>teaching and theses on real ERICI
+              systems</span></li>
           </ul>
         </div>
 
@@ -416,10 +461,15 @@ boot</code></pre>
           <ul class="principles">
             <li><b>Non-commercial.</b> ERICI sells nothing and charges no membership
               fees.</li>
-            <li><b>Vendor-neutral.</b> Every layer of the reference stack can be
-              swapped. No member owns the initiative.</li>
-            <li><b>Contribute what you can.</b> Hardware, code, requirements, test
-              setups, or simply feedback.</li>
+            <li><b>Open interfaces.</b> How each layer hands over to the next is public:
+              UEFI, kernel + initrd, devicetree. Closed-source components are welcome, as
+              long as they keep to these interfaces.</li>
+            <li><b>Bring a real system.</b> Contributions are RISC-V industrial computers:
+              a named SoC in a real box, with a datasheet and a date. Software counts when
+              it serves such a system, such as the driver that lets the real-time partition
+              on box X run its machine.</li>
+            <li><b>Concrete, not abstract.</b> No road maps without silicon, no specs
+              without a system that boots them.</li>
           </ul>
 
           <div class="contact">
@@ -440,6 +490,8 @@ boot</code></pre>
     <ul>
       <li><a href="https://qsoe.net">QSOE</a></li>
       <li><a href="https://qsoe.net/hfi">HFI BIOS</a></li>
+      <!-- TODO: once the repository is public:
+      <li><a href="https://gitlab.com/qsoe/grouvr">gRouvr</a></li> -->
       <li><a href="impressum.html">Impressum</a></li>
       <li><a href="privacy.html">Privacy</a></li>
     </ul>
